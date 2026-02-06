@@ -1,0 +1,5 @@
+index=* sourcetype=linux_syslog "Failed password"
+| rex "Failed password for (invalid user )?(?<user>\w+) from (?<src>[\d\.:]+)"
+| stats count by host, user, src
+| where count >= 5
+| sort - count
