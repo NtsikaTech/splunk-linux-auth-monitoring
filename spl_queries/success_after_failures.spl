@@ -1,0 +1,8 @@
+index=* ("Failed password" OR "Accepted password")
+| rex "password for (?:invalid user )?(?<user>\S+) from (?<src>[\d\.:]+)"
+| eval outcome=if(match(_raw,"Accepted password"),"success","failure")
+| stats count(eval(outcome="failure")) as failures
+        count(eval(outcome="success")) as successes
+        values(user) as users
+        by host, src
+| where failures>=5 AND successes>=1

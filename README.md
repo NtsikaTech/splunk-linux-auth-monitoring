@@ -27,3 +27,25 @@ This project demonstrates detection of SSH brute-force attempts on a Linux syste
 - Splunk SPL queries
 - Alert configuration
 - SOC triage and incident documentation
+
+
+## Phase 2: Successful Login After Multiple Failures
+
+This detection identifies cases where multiple failed SSH login attempts are followed by a successful login from the same source. This simulates potential account compromise in a SOC environment.
+
+**Detection Logic:**
+- Logs monitored: `/var/log/auth.log`
+- Event types: "Failed password" and "Accepted password"
+- Grouped by host and source IP
+- Threshold: 5+ failures followed by 1+ success
+- SPL Query: `spl_queries/success_after_failures.spl`
+
+**Investigation Notes:**
+- Documented in `investigation_success_after_failures.md`
+- Screenshots in `screenshots/success_after_failures.png`
+
+**Skills Demonstrated:**
+- Linux log analysis
+- Splunk SPL query creation
+- Alert logic understanding
+- SOC incident investigation workflow
