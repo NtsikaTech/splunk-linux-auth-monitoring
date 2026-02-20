@@ -1,0 +1,55 @@
+# Splunk SOC Lab: Linux Authentication Monitoring
+
+## Overview
+This project demonstrates hands-on SOC analyst skills using Splunk SIEM to monitor and detect suspicious authentication activity on a Linux system.
+
+The lab simulates real-world attack scenarios such as brute-force attacks, successful compromise attempts, and credential spraying.
+
+---
+
+## Lab Environment
+- Ubuntu Desktop (Log Source)
+- Splunk Enterprise (SIEM)
+- VirtualBox Lab Environment
+
+---
+
+## Data Source
+- `/var/log/auth.log`
+- Sourcetype: `linux_syslog`
+
+---
+
+# Phase 1: SSH Brute-Force Detection
+
+## Objective
+Detect multiple failed SSH login attempts indicating brute-force activity.
+
+## SPL Query
+index=* sourcetype=linux_syslog "Failed password"
+| stats count by host, user, src
+| sort - count
+
+
+## Outcome
+- Identified repeated failed login attempts
+- Created alert for brute-force detection
+- Simulated SOC alert triage
+
+---
+
+# Phase 2: Successful Login After Failures
+
+## Objective
+Detect successful login after multiple failed attempts (possible compromise).
+
+## SPL Query
+index=* ("Failed password" OR "Accepted password")
+| rex "password for (?:invalid user )?(?<user>\S+) from (?<src>[\d.:]+)"
+| eval outcome=if(match(_raw,"Accepted password"),"success","failure")
+| stats count(eval(outcome="failure")) as failures
+count(eval(outcome="success")) as successes
+by host, src, user
+| where failures>=5 AND successes>=1
+
+
