@@ -115,3 +115,26 @@ index=* sourcetype=linux_syslog "Failed password"
 This project demonstrates practical SOC analyst capabilities, including detecting brute-force attacks, identifying compromised accounts, and recognizing credential spraying patterns using Splunk.
 
 
+
+# Phase 4: Privilege Escalation Detection (sudo Monitoring)
+
+## Objective
+Detect post-compromise behavior by monitoring sudo command execution.
+
+## SPL Query
+index=* sourcetype=linux_syslog "sudo:"
+| sort - count
+
+
+## Outcome
+- Identified users executing privileged commands
+- Monitored sensitive actions (user creation, shadow file access)
+- Simulated post-compromise escalation scenario
+
+## Investigation Notes
+See `investigation_sudo_privilege_escalation.md`
+
+
+### Screenshot
+
+![Privilege Escalation Detection](screenshots/sudo_privilege_escalation.png)

@@ -1,0 +1,4 @@
+index=* sourcetype=linux_syslog "sudo:"
+| rex "sudo:\s+(?<user>\S+)\s+:.*COMMAND=(?<command>.*)"
+| stats count by user, command
+| sort - count
