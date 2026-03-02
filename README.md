@@ -138,3 +138,67 @@ See `investigation_sudo_privilege_escalation.md`
 ### Screenshot
 
 ![Privilege Escalation Detection](screenshots/sudo_privilege_escalation.png)
+
+
+---
+
+# Phase sub 4: Privilege Escalation Detection (sudo Monitoring)
+
+## Objective
+Detect privilege escalation attempts through sudo usage, including successful and failed authentication attempts.
+
+## Data Source
+- `/var/log/auth.log`
+- Sourcetype: `linux_syslog`
+
+---
+
+## Detection 1: Successful sudo Command Execution
+
+### SPL Query
+index=* sourcetype=linux_syslog "sudo:" "COMMAND="
+| rex "sudo:\s+(?<user>\S+)\s+:"
+| stats count by host, user
+| sort - count
+
+
+### Purpose
+Identifies users executing commands with elevated privileges.
+
+---
+
+## Detection 2: Failed sudo Authentication Attempts
+
+### SPL Query
+index=* sourcetype=linux_syslog "sudo:" "authentication failure"
+| stats count by host
+
+
+### Purpose
+Detects failed privilege escalation attempts.
+
+---
+
+## Outcome
+- Simulated privilege escalation in lab environment
+- Verified log ingestion from auth.log
+- Created detection queries for sudo monitoring
+- Documented SOC investigation workflow
+
+---
+
+## Skills Demonstrated (Phase 4)
+- Privilege escalation detection
+- Log analysis for command execution
+- Field extraction using rex
+- Security event correlation
+- SOC alert creation and validation
+
+### Field Extraction Example
+![Field Extraction](screenshots/extract_field.png)
+
+### Successful sudo Detection
+![Successful Sudo](screenshots/successful.png)
+
+### Failed sudo Detection
+![Failed Sudo](screenshots/failed.png)
