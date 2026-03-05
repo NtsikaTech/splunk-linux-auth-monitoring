@@ -202,3 +202,25 @@ Detects failed privilege escalation attempts.
 
 ### Failed sudo Detection
 ![Failed Sudo](screenshots/failed.png)
+
+
+# Phase 6: SOC Monitoring Dashboard
+
+A centralized dashboard was built to visualize key Linux authentication and security events in Splunk:
+
+- Failed SSH login attempts
+- Successful SSH logins
+- Success after multiple failures
+- Credential spraying
+- Privilege escalation (sudo)
+- New user creation
+
+### Dashboard Screenshot
+
+![Dashboard Overview](screenshots/dashboard_overview.png)
+
+### Outcome
+- Created centralized visibility for SOC monitoring
+- Monitored brute-force attacks, account compromise, credential spraying, sudo activity, and persistence
+- Simulated real SOC operational workflow
+
