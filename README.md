@@ -224,3 +224,70 @@ A centralized dashboard was built to visualize key Linux authentication and secu
 - Monitored brute-force attacks, account compromise, credential spraying, sudo activity, and persistence
 - Simulated real SOC operational workflow
 
+---
+
+# Phase 7: SOC Incident Investigation
+
+## Objective
+Simulate a full attack chain and investigate the events using Splunk.
+
+The investigation focused on identifying suspicious authentication activity, correlating events, and building a timeline of attacker behavior.
+
+---
+
+## Attack Simulation
+
+The following actions were simulated in the lab environment:
+
+1. Multiple failed SSH login attempts
+2. Successful SSH login
+3. Privilege escalation using sudo
+4. Creation of a new user account
+
+These actions generated security events in `/var/log/auth.log` which were ingested into Splunk.
+
+---
+
+## Investigation Queries
+
+### Failed SSH Logins
+index=* sourcetype=linux_syslog "Failed password"
+
+### Successful SSH Logins
+index=* sourcetype=linux_syslog "Accepted password"
+
+### Sudo Activity
+index=* sourcetype=linux_syslog "sudo:"
+
+### New User Creation
+index=* sourcetype=linux_syslog "new user"
+
+---
+
+## Attack Timeline
+
+| Time | Event | Description |
+|-----|------|-------------|
+| Initial | Failed SSH attempts | Multiple login failures detected |
+| Later | Successful login | Account authentication succeeded |
+| Next | Sudo command executed | Elevated privileges used |
+| Final | New user created | Persistence established |
+
+---
+
+## MITRE ATT&CK Mapping
+
+T1110 – Brute Force  
+T1078 – Valid Accounts  
+T1068 – Privilege Escalation  
+T1136 – Create Account
+
+---
+
+## Outcome
+
+The investigation successfully identified a simulated attack chain including initial access, privilege escalation, and persistence activity.
+
+This demonstrates practical SOC analyst skills including log analysis, event correlation, and incident documentation.
+
+
