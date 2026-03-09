@@ -291,3 +291,11 @@ The investigation successfully identified a simulated attack chain including ini
 This demonstrates practical SOC analyst skills including log analysis, event correlation, and incident documentation.
 
 
+Screenshot 2026-03-09 at 11-44-31 Linux SOC Monitoring Dashboard Splunk 10.2.0.png
+
+
+## SOC Monitoring Dashboard
+
+The dashboard provides centralized monitoring of authentication activity including brute-force attempts, successful logins, privilege escalation, and persistence events.
+
+![SOC Dashboard](screenshots/dashboard_overview.png)
