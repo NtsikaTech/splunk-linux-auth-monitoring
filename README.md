@@ -142,7 +142,7 @@ See `investigation_sudo_privilege_escalation.md`
 
 ---
 
-# Phase sub 4: Privilege Escalation Detection (sudo Monitoring)
+# Phase 5: Privilege Escalation Detection (sudo Monitoring)
 
 ## Objective
 Detect privilege escalation attempts through sudo usage, including successful and failed authentication attempts.
@@ -187,7 +187,7 @@ Detects failed privilege escalation attempts.
 
 ---
 
-## Skills Demonstrated (Phase 4)
+## Skills Demonstrated (Phase 5)
 - Privilege escalation detection
 - Log analysis for command execution
 - Field extraction using rex
