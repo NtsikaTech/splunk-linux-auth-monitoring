@@ -19,6 +19,88 @@ The lab simulates real-world attack scenarios such as brute-force attacks, succe
 - Sourcetype: `linux_syslog`
 
 ---
+## Table of Contents
+
+1. [Phase 1-2: SSH Brute Force Detection](#phase-1-2-ssh-brute-force-detection)
+2. [Phase 3-4: Failed vs Successful Logins](#phase-3-4-failed-vs-successful-logins)
+3. [Phase 5-6: Sudo Activity and Privilege Escalation](#phase-5-6-sudo-activity-and-privilege-escalation)
+4. [Phase 7: Persistence Detection (New Users)](#phase-7-persistence-detection-new-users)
+5. [Phase 8: Brute Force Detection Alert in Splunk](#phase-8-brute-force-detection-alert-in-splunk)
+6. [Phase 9: Terminal-Based Threat Detection](#phase-9-terminal-based-threat-detection)
+7. [Phase 10: Python-Based Detection Automation](#phase-10-python-based-detection-automation)
+8. [Phase 11: MITRE ATT&CK Mapping](#phase-11-mitre-attck-mapping)
+
+---
+
+## Repository Structure
+
+
+splunk-linux-auth-monitoring/
+├── scripts/ # Python detection scripts
+├── screenshots/ # All screenshots of searches, dashboards, alerts, output
+├── docs/ # Notes, logs, or supporting files
+├── README.md # Project documentation
+
+---
+
+## Key Highlights
+
+- **SIEM Detection**: Built Splunk searches for brute-force and login correlation.
+- **Alerting**: Configured Splunk alerts with thresholds for detection.
+- **Manual Triage**: Used Linux CLI to monitor logs and detect suspicious activity.
+- **Automation**: Python script parses auth.log and outputs alerts automatically.
+- **ATT&CK Mapping**: All detections mapped to relevant MITRE ATT&CK techniques.
+- **Portfolio Ready**: Screenshots and code demonstrate SOC workflow from detection to alerting.
+
+---
+
+## Skills Demonstrated
+
+- Log ingestion, searching, and alerting (Splunk)
+- Linux log analysis and threat detection
+- Python scripting for SOC automation
+- Incident triage and detection engineering
+- SOC workflow documentation
+- MITRE ATT&CK alignment
+
+---
+
+## Example Visuals
+
+### Brute Force Detection
+
+![Brute Force Detection](screenshots/bruteforce_detection.png)
+
+### Python Detection Output
+
+![Python Detection Output](screenshots/python_detection_output.png)
+
+### SOC Dashboard Overview
+
+![SOC Dashboard](screenshots/dashboard_overview.png)
+
+---
+
+## How to Run
+
+1. **Python Script**: Run `scripts/detect_auth_attacks.py` on Linux VM:
+
+```bash
+python3 scripts/detect_auth_attacks.py
+
+---
+
+## Manual Log Monitoring: Use commands:
+
+grep "Failed password" /var/log/auth.log
+grep "Accepted password" /var/log/auth.log
+grep "sudo" /var/log/auth.log
+
+## Outcome
+
+This repository demonstrates real-world SOC workflows: detection, alerting, investigation, automation, and documentation.
+
+---
 
 # Phase 1: SSH Brute-Force Detection
 
