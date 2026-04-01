@@ -303,7 +303,7 @@ The dashboard provides centralized monitoring of authentication activity includi
 
 ---
 
-# Phase 9: Terminal-Based Threat Detection (No SIEM)
+# Phase 8: Terminal-Based Threat Detection (No SIEM)
 
 ## Objective
 
@@ -361,7 +361,7 @@ grep "new user" /var/log/auth.log
 
 ---
 
-# Phase 10: Python-Based Detection Automation
+# Phase 9: Python-Based Detection Automation
 
 ## Objective
 
