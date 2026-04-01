@@ -299,3 +299,62 @@ Screenshot 2026-03-09 at 11-44-31 Linux SOC Monitoring Dashboard Splunk 10.2.0.p
 The dashboard provides centralized monitoring of authentication activity including brute-force attempts, successful logins, privilege escalation, and persistence events.
 
 ![SOC Dashboard](screenshots/dashboard_overview.png)
+
+
+---
+
+# Phase 9: Terminal-Based Threat Detection (No SIEM)
+
+## Objective
+
+Perform security monitoring and threat detection directly on a Linux system using command-line tools, without relying on a SIEM platform.
+
+---
+
+## Brute Force Detection
+grep "Failed password" /var/log/auth.log
+
+
+Count failed attempts:
+grep "Failed password" /var/log/auth.log | wc -l
+
+
+Top attacking sources:
+grep "Failed password" /var/log/auth.log | awk '{print $(NF-3)}' | sort | uniq -c | sort -nr
+
+
+---
+
+## Successful Logins
+grep "Accepted password" /var/log/auth.log
+
+
+---
+
+## Privilege Escalation Detection
+grep "sudo" /var/log/auth.log
+
+
+---
+
+## Persistence Detection (New Users)
+grep "new user" /var/log/auth.log
+
+
+
+---
+
+## Outcome
+
+- Successfully performed threat detection using Linux CLI tools
+- Validated authentication logs without SIEM
+- Demonstrated incident triage capability in restricted environments
+
+---
+
+## Skills Demonstrated
+
+- Linux log analysis
+- Command-line threat detection
+- Incident investigation without SIEM
+- Security troubleshooting
