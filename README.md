@@ -81,15 +81,6 @@ splunk-linux-auth-monitoring/
 
 ---
 
-## How to Run
-
-1. **Python Script**: Run `scripts/detect_auth_attacks.py` on Linux VM:
-
-```bash
-python3 scripts/detect_auth_attacks.py
-
----
-
 ## Manual Log Monitoring: Use commands:
 
 grep "Failed password" /var/log/auth.log
