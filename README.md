@@ -358,3 +358,45 @@ grep "new user" /var/log/auth.log
 - Command-line threat detection
 - Incident investigation without SIEM
 - Security troubleshooting
+
+---
+
+# Phase 10: Python-Based Detection Automation
+
+## Objective
+
+Develop a Python script to automate detection of suspicious authentication activity by analyzing Linux log files.
+
+---
+
+## Script Functionality
+
+The script performs the following:
+
+- Parses `/var/log/auth.log`
+- Detects multiple failed login attempts
+- Identifies potential brute-force attacks
+- Detects successful logins
+- Outputs structured alerts
+
+---
+
+## Python Code
+
+```python
+# (see detect_auth_attacks.py in repository)
+
+---
+
+## Example Output
+
+## Outcome
+Automated detection of brute-force activity
+Reduced manual log analysis effort
+Demonstrated ability to build security automation tools
+
+## Skills Demonstrated
+Python scripting for security
+Log parsing and analysis
+Detection automation
+SOC workflow enhancement
