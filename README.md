@@ -37,6 +37,7 @@ The lab simulates real-world attack scenarios such as brute-force attacks, succe
 
 
 splunk-linux-auth-monitoring/
+
 ├── scripts/ # Python detection scripts
 
 ├── screenshots/ # All screenshots of searches, dashboards, alerts, output
