@@ -21,14 +21,15 @@ The lab simulates real-world attack scenarios such as brute-force attacks, succe
 ---
 ## Table of Contents
 
-1. [Phase 1-2: SSH Brute Force Detection](#phase-1-2-ssh-brute-force-detection)
-2. [Phase 3-4: Failed vs Successful Logins](#phase-3-4-failed-vs-successful-logins)
-3. [Phase 5-6: Sudo Activity and Privilege Escalation](#phase-5-6-sudo-activity-and-privilege-escalation)
-4. [Phase 7: Persistence Detection (New Users)](#phase-7-persistence-detection-new-users)
-5. [Phase 8: Brute Force Detection Alert in Splunk](#phase-8-brute-force-detection-alert-in-splunk)
-6. [Phase 9: Terminal-Based Threat Detection](#phase-9-terminal-based-threat-detection)
-7. [Phase 10: Python-Based Detection Automation](#phase-10-python-based-detection-automation)
-8. [Phase 11: MITRE ATT&CK Mapping](#phase-11-mitre-attck-mapping)
+1. [Phase 1: SSH Brute-Force Detection](#phase-1-ssh-brute-force-detection)
+2. [Phase 2: Successful Login After Failures](#phase-2-successful-login-after-failures)
+3. [Phase 3: Multiple Users from Single Source (Credential Spraying)](#phase-3-multiple-users-from-single-source-credential-spraying)
+4. [Phase 4: Privilege Escalation Detection (sudo Monitoring)](#phase-4-privilege-escalation-detection-sudo-monitoring)
+5. [Phase 5: Privilege Escalation Detection (Advanced sudo Monitoring)](#phase-5-privilege-escalation-detection-advanced-sudo-monitoring)
+6. [Phase 6: SOC Monitoring Dashboard](#phase-6-soc-monitoring-dashboard)
+7. [Phase 7: SOC Incident Investigation](#phase-7-soc-incident-investigation)
+8. [Phase 8: Terminal-Based Threat Detection (No SIEM)](#phase-8-terminal-based-threat-detection-no-siem)
+9. [Phase 9: Python-Based Detection Automation](#phase-9-python-based-detection-automation)
 
 ---
 
